@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './styles.css';
 import VisitorForm from '../../pages/visitorForm/VisitorForm';
 import {useFormContext} from '../../context/FormContext';
+import { ToastContainer, toast } from "react-toastify";
 
 const LandingPage = () => {
     const [start, setStart] = useState(false);
@@ -20,14 +21,19 @@ const LandingPage = () => {
         }
         else if(step === 2 && formState.drinks_snacks !== ''){
             setStep(prev => prev + 1);
+            toast.success("Details Submitted successfully!", {
+                position: toast.POSITION.TOP_RIGHT,
+              })
         }
         else{
-            alert('All fields are mandatory!')
+            toast.error("Fields are mandatory!", {
+                position: toast.POSITION.TOP_RIGHT,
+              })
         }
     }
 
     if(step === 3){
-        console.log(formState)
+        // console.log(formState)
         setTimeout(()=>{
             window.location.reload(false)
         }, 25000)
@@ -40,19 +46,20 @@ const LandingPage = () => {
 
     return (
         <div className='landing'>
+        <ToastContainer />
             <div className='landing-block'>
                 <div className='island-img'>
                     <img src='./island.png' alt='island' />
                 </div>
                 {!start ?
                     <div className='block-text'>
-                        <h1>Visitor App</h1>
-                        <h2>Welcome to Visitor App!</h2>
+                        <h1>Visitors Manager</h1>
+                        <h3>Welcome to Tech Dunia!</h3>
                         <button className='proceed' onClick={() => handleStart()}>Click here to proceed</button>
                     </div>
                     :
                     <div className='block-text'>
-                        <h1>Visitor App</h1>
+                        <h1>Visitors Manager</h1>
                         <p className='page-number'>Page:{step+1}</p>
                         <VisitorForm step={step} />
                         {step < 2 && <button className='next-btn' onClick={() => { handleStep() }}>Next</button> }
