@@ -1,0 +1,21 @@
+.header-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid black; */
+    padding: 1.5rem;
+    color: white;
+}
+
+
+.menu-items>ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li.menu-item{
+    padding: 0.5rem;
+}
