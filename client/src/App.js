@@ -1,4 +1,5 @@
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 // import Navbar from './components/navbar/Navbar';
 import LandingPage from './components/landingPage/LandingPage';
 
