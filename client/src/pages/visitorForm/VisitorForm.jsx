@@ -1,37 +1,64 @@
 import React from 'react'
 import './styles.css'
-import { InputField } from '../../components/inputFields/InputField'
+// import { InputField } from '../../components/inputFields/InputField'
+import { useFormContext } from '../../context/FormContext'
 
-const VisitorForm = ({step, handleStep}) => {
+const VisitorForm = ({step}) => {
+
+    const {setFormState} = useFormContext()
     
     return (
         <>  
         {step === 0 &&
             <>  
-                
-                <InputField type='text' placeholder='Full name' />
-                <InputField type='text' placeholder='Mobile number' />
-                <InputField type='text' placeholder='Your address' />
-                <button className='next-btn' onClick={() => { handleStep() }}>Next</button>
+            <div className='input-fields'>
+                <input className='field' type='text' placeholder='Full name'  onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    visitors_name: e.target.value,
+                }))}/>
+            </div>
+            <div className='input-fields'>
+                <input className='field' type='text' placeholder='Mobile number'  onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    visitors_mobile: e.target.value,
+                }))}/>
+            </div>
+            <div className='input-fields'>
+                <input className='field' type='text' placeholder='Your Address'  onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    visitors_address: e.target.value,
+                }))}/>
+            </div>
             </>
         }
         {step === 1 &&
             <>
-                
-                <InputField type='text' placeholder='Whom to meet' />
-                <InputField type='text' placeholder='Reason for the visit' />
-                
-                <button className='next-btn' onClick={() => { handleStep() }}>Next</button>
+            <div className='input-fields'>
+                <input className='field' type='text' placeholder='Whom to meet?'  onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    came_to_meet: e.target.value,
+                }))}/>
+            </div>
+            <div className='input-fields'>
+                <input className='field' type='text' placeholder='Reason of Visit'  onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    reason_for_visit: e.target.value,
+                }))}/>
+            </div>
             </>
         }
         {step === 2 &&
             <>
-                
                 <h5>Drinks or Snacks:</h5>
-                <div><input type='radio' id='coffee' value='coffee'/> <label htmlFor='coffee'>Coffee</label></div>
-                <div><input type='radio' id='tea' value='tea'/> <label htmlFor='tea'>Tea</label></div>
-                <div><input type='radio' id='water' value='water'/> <label htmlFor='water'>Water</label></div>
-                <button className='next-btn' onClick={() => { handleStep() }}>Submit</button>
+                <div onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    drinks_snacks: e.target.value
+                }))}>
+                <div><input type='radio' id='coffee' name='drinks_snacks' value='coffee'/> <label htmlFor='coffee'>Coffee</label></div>
+                <div><input type='radio' id='water' name='drinks_snacks' value='water'/> <label htmlFor='water'>Water</label></div>
+                <div><input type='radio' id='tea' name='drinks_snacks' value='tea'/> <label htmlFor='tea'>Tea</label></div>
+                <div><input type='radio' id='no' name='drinks_snacks' value='no'/> <label htmlFor='no'>No, thanks</label></div> 
+                </div>
             </>
         }
         {step === 3 &&
