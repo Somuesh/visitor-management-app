@@ -33,7 +33,7 @@ const LandingPage = () => {
     }
 
     if(step === 3){
-        // console.log(formState)
+        console.log(formState)
         setTimeout(()=>{
             window.location.reload(false)
         }, 25000)
@@ -53,13 +53,13 @@ const LandingPage = () => {
                 </div>
                 {!start ?
                     <div className='block-text'>
-                        <h1>Visitors Manager</h1>
+                        <h1 className='heading'>Visitors Manager</h1>
                         <h3>Welcome to Tech Dunia!</h3>
                         <button className='proceed' onClick={() => handleStart()}>Click here to proceed</button>
                     </div>
                     :
                     <div className='block-text'>
-                        <h1>Visitors Manager</h1>
+                        <h1 className='heading'>Visitors Manager</h1>
                         <p className='page-number'>Page:{step+1}</p>
                         <VisitorForm step={step} />
                         {step < 2 && <button className='next-btn' onClick={() => { handleStep() }}>Next</button> }
