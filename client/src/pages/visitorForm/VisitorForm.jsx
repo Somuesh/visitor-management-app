@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 // import { InputField } from '../../components/inputFields/InputField'
 import { useFormContext } from '../../context/FormContext'
+import staff from '../../staff'
 
 const VisitorForm = ({step}) => {
 
@@ -34,10 +35,16 @@ const VisitorForm = ({step}) => {
         {step === 1 &&
             <>
             <div className='input-fields'>
-                <input className='field' type='text' placeholder='Whom to meet?'  onChange={(e)=>setFormState(prev=>({
+                {/* <input className='field' type='text' placeholder='Whom to meet?'  onChange={(e)=>setFormState(prev=>({
                     ...prev,
                     came_to_meet: e.target.value,
-                }))}/>
+                }))}/> */}
+                <select className='field' id='came_to_meet' onChange={(e)=>setFormState(prev=>({
+                    ...prev,
+                    came_to_meet: e.target.value,
+                }))}>
+                    { staff.map((member)=>(<option key={member.id}>{member.name}</option>)) }
+                </select>
             </div>
             <div className='input-fields'>
                 <input className='field' type='text' placeholder='Reason of Visit'  onChange={(e)=>setFormState(prev=>({

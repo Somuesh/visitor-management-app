@@ -19,7 +19,7 @@
 
 .island-img>img{
     width: 100%;
-    filter: drop-shadow(0 0.5rem 0.5rem rgba(100, 100, 0, 0.5));
+    filter: drop-shadow(0 0.5rem 0.5rem rgba(230, 230, 0, 0.5));
     /* background-color: black; */
 }
 
@@ -41,4 +41,8 @@
     border-radius: 0.2rem;
     padding: 1rem;
     cursor: pointer;
+}
+
+.heading{
+    text-shadow: 1px 1px #88efdc;
 }
