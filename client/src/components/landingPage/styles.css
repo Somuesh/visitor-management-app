@@ -44,5 +44,8 @@
 }
 
 .heading{
-    text-shadow: 1px 1px #88efdc;
+    /* text-shadow: 1px 1px #88efdc; */
+    background: -webkit-linear-gradient(#88efdc, #f8ecb1);
+    background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -3,7 +3,7 @@ const staff = [
         id: 1,
         name: 'Staff 1',
         department: 'HR',
-        image: 'image.jpeg',
+        image: './island.png',
         email: 'staff-email@techdunia.com',
         mobile: '9876678901'
     },
