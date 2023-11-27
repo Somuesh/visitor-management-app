@@ -33,7 +33,6 @@ const LandingPage = () => {
     }
 
     if(step === 3){
-        console.log(formState)
         setTimeout(()=>{
             window.location.reload(false)
         }, 25000)
