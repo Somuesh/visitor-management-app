@@ -3,6 +3,7 @@ import './styles.css'
 // import { InputField } from '../../components/inputFields/InputField'
 import { useFormContext } from '../../context/FormContext'
 import staff from '../../staff'
+import Thanks from '../thanksPage/Thanks'
 
 const VisitorForm = ({ step }) => {
 
@@ -39,6 +40,7 @@ const VisitorForm = ({ step }) => {
                             ...prev,
                             came_to_meet: e.target.value,
                         }))}>
+                        <option> Appointment with: </option>
                             {staff.map((member) => (<option key={member.id} value={member.name} > {member.name}</option>))}
                         </select>
                     </div>
@@ -66,11 +68,7 @@ const VisitorForm = ({ step }) => {
             }
             {step === 3 &&
                 <>
-                    <div className='thanks-text'>
-                        <h2>Thanks for using our App!</h2>
-                        <p>Our representative will contact you soon.<br />
-                            Meanwhile you can enjoy your drinks and snacks.</p>
-                    </div>
+                    <Thanks />
                 </>
             }
 
