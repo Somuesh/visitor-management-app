@@ -24,7 +24,7 @@ The Visitor Management App is a web application built using the MERN (MongoDB, E
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/your-username/visitor-management-app.git
+   git clone https://github.com/somuesh/visitor-management-app.git
    cd visitor-management-app
 ```
 
